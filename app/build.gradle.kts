@@ -71,6 +71,7 @@ dependencies {
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.svg)
 
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
