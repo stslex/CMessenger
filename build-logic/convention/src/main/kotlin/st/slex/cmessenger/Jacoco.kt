@@ -34,36 +34,36 @@ fun Project.configureJacoco(
     androidComponentsExtension.onVariants { variant ->
         val testTaskName = "test${variant.name.capitalize()}UnitTest"
 
-        val reportTask = tasks.register("jacoco${testTaskName.capitalize()}Report", JacocoReport::class) {
-            dependsOn(testTaskName)
+        val reportTask =
+            tasks.register("jacoco${testTaskName.capitalize()}Report", JacocoReport::class) {
+                dependsOn(testTaskName)
 
-            reports {
-                xml.required.set(true)
-                html.required.set(true)
-            }
-
-            classDirectories.setFrom(
-                fileTree("$buildDir/tmp/kotlin-classes/${variant.name}") {
-                    exclude(coverageExclusions)
+                reports {
+                    xml.required.set(true)
+                    html.required.set(true)
                 }
-            )
 
-            sourceDirectories.setFrom(files("$projectDir/src/main/java", "$projectDir/src/main/kotlin"))
-            executionData.setFrom(file("$buildDir/jacoco/$testTaskName.exec"))
-        }
+                classDirectories.setFrom(
+                    fileTree("$buildDir/tmp/kotlin-classes/${variant.name}") {
+                        exclude(coverageExclusions)
+                    }
+                )
+
+                sourceDirectories.setFrom(
+                    files(
+                        "$projectDir/src/main/java",
+                        "$projectDir/src/main/kotlin"
+                    )
+                )
+                executionData.setFrom(file("$buildDir/jacoco/$testTaskName.exec"))
+            }
 
         jacocoTestReport.dependsOn(reportTask)
     }
 
     tasks.withType<Test>().configureEach {
         configure<JacocoTaskExtension> {
-            // Required for JaCoCo + Robolectric
-            // https://github.com/robolectric/robolectric/issues/2230
-            // TODO: Consider removing if not we don't add Robolectric
             isIncludeNoLocationClasses = true
-
-            // Required for JDK 11 with the above
-            // https://github.com/gradle/gradle/issues/5184#issuecomment-391982009
             excludes = listOf("jdk.internal.*")
         }
     }
