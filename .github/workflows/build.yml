@@ -1,25 +1,24 @@
 name: Android CI/CD
 on:
-
   pull_request:
-    branches: [ master ]
-    
   push:
     branches: [ master ]
-    
   workflow_dispatch:
-
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-
   build:
     name: Build project
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v2  
-
+        
+      - name: Copy CI gradle.properties
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties  
+        
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -37,17 +36,4 @@ jobs:
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Check spotless
-        run: ./gradlew spotlessCheck --stacktrace
-
-      - name: Check lint
-        run: ./gradlew lintDebug --stacktrace
-
-      - name: Build debug
-        run: ./gradlew assembleDebug --stacktrace
-
-      - name: Build release
-        run: ./gradlew assembleRelease --stacktrace
-
-      - name: Run local tests
-        run: ./gradlew testDebug --stacktrace
-      
+        run: ./gradlew build --stacktrace
