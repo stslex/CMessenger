@@ -24,9 +24,6 @@ jobs:
         with:
           java-version: 11
 
-      - name: Generate cache key
-        run: ./scripts/checksum.sh checksum.txt
-
       - uses: actions/cache@v2
         with:
           path: |
