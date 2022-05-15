@@ -52,14 +52,18 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    namespace = "st.slex.cmessenger"
 }
 
 dependencies {
+    implementation(project(":core-navigation"))
+    implementation(project(":core-ui"))
+    implementation(project(":feature-auth"))
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.window.manager)
     implementation(libs.material3)
     implementation(libs.androidx.profileinstaller)
