@@ -19,9 +19,6 @@ jobs:
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties  
         
-      - name: Generate cache key
-        run: ./scripts/checksum.sh checksum.txt
-        
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
