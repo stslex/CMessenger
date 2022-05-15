@@ -32,5 +32,5 @@ jobs:
             ~/.gradle/caches/build-cache-*
           key: gradle-${{ hashFiles('checksum.txt') }}
 
-      - name: Check spotless
+      - name: Build project
         run: ./gradlew build --stacktrace
