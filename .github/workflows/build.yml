@@ -34,9 +34,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle
 
-      - name: Check spotless
-        run: ./gradlew spotlessCheck --stacktrace
-
       - name: Check lint
         run: ./gradlew lintDebug --stacktrace
 
