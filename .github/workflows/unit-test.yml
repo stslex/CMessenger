@@ -4,9 +4,7 @@ on:
   push:
     branches: [ master ]
   workflow_dispatch:
-concurrency:
-  group: build-${{ github.ref }}
-  cancel-in-progress: true
+
 jobs:
   unitTest:
     name: Unit tests
@@ -20,7 +18,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-
+          
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        
       - name: Run local tests
         run: ./gradlew testDebug --stacktrace
 
