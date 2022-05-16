@@ -33,15 +33,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle
-            
-      - name: Check lint
-        run: ./gradlew lintDebug --stacktrace
-
-      - name: Build debug
-        run: ./gradlew assembleDebug --stacktrace
-
-      - name: Build release
-        run: ./gradlew assembleRelease --stacktrace
 
       - name: Run local tests
         run: ./gradlew testDebug --stacktrace
