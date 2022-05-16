@@ -52,7 +52,7 @@ jobs:
 
   androidTest:
     needs: unitTest
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 30
     strategy:
       matrix:
@@ -79,9 +79,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle
-            
-      - name: Packer qemu build
-        uses: enr0s/packer-qemu-action@v0.2
         
       - name: Run instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
