@@ -1,3 +1,5 @@
+@Suppress("DSL_SCOPE_VIOLATION")
+
 plugins {
     id("cmessenger.android.library")
     id("cmessenger.android.library.jacoco")
@@ -13,6 +15,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 }
+
 android {
     namespace = "st.slex.core_navigation"
 }

@@ -12,34 +12,10 @@ android {
     defaultConfig {
         applicationId = "st.slex.cmessenger"
         versionCode = 1
-        versionName = "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
-
-        // Custom test runner to set up Hilt dependency graph
+        versionName = "0.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        val debug by getting {
-            applicationIdSuffix = ".debug"
-        }
-        val release by getting {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-        val benchmark by creating {
-            initWith(release)
-            signingConfig = signingConfigs.getByName("debug")
-            matchingFallbacks.add("release")
-            proguardFiles("benchmark-rules.pro")
-        }
-        val staging by creating {
-            initWith(debug)
-            signingConfig = signingConfigs.getByName("debug")
-            matchingFallbacks.add("debug")
-            applicationIdSuffix = ".staging"
         }
     }
     packagingOptions {
