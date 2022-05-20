@@ -1,6 +1,8 @@
 name: Android CI/CD
 on:
   pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches: [ master ]
   push:
     branches: [ master ]
   workflow_dispatch:
@@ -79,7 +81,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle
-        
+
       - name: Run instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
