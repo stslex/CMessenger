@@ -57,4 +57,5 @@ fun BoxScope.PhoneNumberField(
             }
             isError.value = false
         })
+    Loading(Modifier.align(Alignment.Center))
 }
