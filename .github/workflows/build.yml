@@ -62,7 +62,7 @@ jobs:
     strategy:
       matrix:
         api-level: [ 23, 26, 27 ]
-        target: [ default, google_apis ]
+        target: [ default ]
         arch: [ x86_64, x86 ]
 
     steps:
