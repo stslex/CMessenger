@@ -12,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import st.slex.feature_auth.navigation.AuthDestination
 import st.slex.feature_auth.navigation.authGraph
+import st.slex.feature_greeting.navigation.GreetingDestination
+import st.slex.feature_greeting.navigation.greetingGraph
 
 @Composable
 fun AppNavHost(
@@ -21,9 +23,13 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = AuthDestination.route,
+        startDestination = GreetingDestination.route,
         modifier = modifier,
     ) {
+        greetingGraph(
+            navigateToAuth = { navController.navigate(AuthDestination.route) },
+            navigateToDemo = {}
+        )
         authGraph(
             onBackClick = { navController.popBackStack() }
         )

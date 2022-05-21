@@ -1,4 +1,4 @@
-package st.slex.feature_auth
+package st.slex.feature_auth.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

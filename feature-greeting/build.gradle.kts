@@ -32,7 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    namespace = "st.slex.feature_auth"
+    namespace = "st.slex.feature_greeting"
 }
 
 dependencies {
@@ -56,4 +56,5 @@ dependencies {
     api(libs.junit4)
     api(libs.androidx.test.core)
     api(libs.kotlinx.coroutines.test)
+    api(libs.androidx.test.ext)
 }
