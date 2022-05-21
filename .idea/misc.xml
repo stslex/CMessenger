@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2055" />
         <entry key="feature-auth/src/main/java/st/slex/feature_auth/ui/AuthScreen.kt" value="0.335" />
         <entry key="feature-auth/src/main/java/st/slex/feature_auth/ui/LoadingAnimation.kt" value="0.335" />
+        <entry key="feature-demo/src/main/java/st/slex/feature_demo/DemoScreen.kt" value="0.24259259259259258" />
         <entry key="feature-greeting/src/main/java/st/slex/feature_greeting/ui/GreetingScreen.kt" value="0.335" />
         <entry key="utils-ui/src/main/java/st/slex/Loading.kt" value="0.2777777777777778" />
       </map>

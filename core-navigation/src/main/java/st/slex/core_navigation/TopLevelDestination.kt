@@ -1,4 +1,4 @@
-package st.slex.cmessenger.navigation
+package st.slex.core_navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
