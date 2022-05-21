@@ -21,8 +21,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -39,6 +38,7 @@ android {
 dependencies {
     implementation(project(":core-navigation"))
     implementation(project(":core-ui"))
+    implementation(project(":utils-ui"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
@@ -48,9 +48,6 @@ dependencies {
     implementation(libs.androidx.window.manager)
     implementation(libs.material3)
     implementation(libs.androidx.profileinstaller)
-
-    implementation(libs.coil.kt)
-    implementation(libs.coil.kt.svg)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

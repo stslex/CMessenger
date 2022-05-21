@@ -1,7 +1,8 @@
-package st.slex.cmessenger.navigation
+package st.slex.feature_demo.navigation
 
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import st.slex.core_navigation.TopLevelDestination
 
 class AppTopLevelNavigation(private val navController: NavHostController) {
 

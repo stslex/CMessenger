@@ -1,0 +1,6 @@
+package st.slex.feature_demo.navigation
+
+import st.slex.feature_collections.navigation.COLLECTIONS_TOP_LEVEL_DESTINATION
+import st.slex.feature_photos.navigation.PHOTOS_TOP_LEVEL_DESTINATION
+
+val TOP_LEVEL_DESTINATIONS = listOf(PHOTOS_TOP_LEVEL_DESTINATION, COLLECTIONS_TOP_LEVEL_DESTINATION)

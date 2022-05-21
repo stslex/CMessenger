@@ -35,6 +35,8 @@ dependencies {
     implementation(project(":core-navigation"))
     implementation(project(":core-ui"))
     implementation(project(":feature-auth"))
+    implementation(project(":feature-greeting"))
+    implementation(project(":feature-demo"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

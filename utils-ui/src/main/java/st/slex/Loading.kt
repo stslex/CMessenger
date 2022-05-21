@@ -1,4 +1,4 @@
-package st.slex.feature_auth.ui
+package st.slex
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Canvas
@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -22,13 +23,17 @@ import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
 
+private const val maxCollapseRadius = 200.0
 
 @Composable
-fun Loading(
-    modifier: Modifier = Modifier
-) {
+fun Loading(modifier: Modifier = Modifier) {
+    val density = LocalDensity.current.density
+    val padding = maxCollapseRadius / density
     for (i in 0..5) {
-        LoadingItem(modifier = modifier, initialState = i * 60.0)
+        LoadingItem(
+            modifier = modifier.padding(padding.dp),
+            initialState = i * 60.0
+        )
     }
 }
 
@@ -38,7 +43,7 @@ fun LoadingItem(
 ) {
     var radian by remember { mutableStateOf(initialState) }
     val circleRadius = 30.0 * abs(cos(radian))
-    val collapseRadius = 200.0 * abs(cos(radian))
+    val collapseRadius = maxCollapseRadius * abs(cos(radian))
     val circleColor = MaterialTheme.colorScheme.primary
     Canvas(modifier = modifier, onDraw = {
         val centerX = (collapseRadius * cos(radian)).toFloat()
