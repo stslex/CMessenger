@@ -1,4 +1,4 @@
-package st.slex.feature_auth.ui
+package st.slex
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Canvas
@@ -22,11 +22,8 @@ import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
 
-
 @Composable
-fun Loading(
-    modifier: Modifier = Modifier
-) {
+fun Loading(modifier: Modifier = Modifier) {
     for (i in 0..5) {
         LoadingItem(modifier = modifier, initialState = i * 60.0)
     }

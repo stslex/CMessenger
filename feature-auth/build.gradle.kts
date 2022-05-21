@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation(project(":core-navigation"))
     implementation(project(":core-ui"))
+    implementation(project(":utils-ui"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

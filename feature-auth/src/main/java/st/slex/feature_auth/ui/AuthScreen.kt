@@ -57,30 +57,20 @@ fun AuthScreen(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Preview(
-    group = "auth-screen",
-    name = "Pixel 6 pro",
-    showSystemUi = true,
-    device = "id:pixel_6_pro"
+    group = "auth-screen", name = "Pixel 6 pro", showSystemUi = true, device = "id:pixel_6_pro"
 )
 @Preview(
-    group = "auth-screen",
-    name = "Nexus One",
-    showSystemUi = true,
-    device = "id:Nexus One"
+    group = "auth-screen", name = "Nexus One", showSystemUi = true, device = "id:Nexus One"
 )
 @Preview(
-    group = "auth-screen",
-    name = "Pixel C",
-    showSystemUi = true,
-    device = "id:pixel_c"
+    group = "auth-screen", name = "Pixel C", showSystemUi = true, device = "id:pixel_c"
 )
 
 @Composable
 fun PreviewAuthScreen() {
     CMessengerTheme(dynamicColor = true) {
         Surface(
-            color = MaterialTheme.colorScheme.background,
-            modifier = Modifier.fillMaxSize()
+            color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()
         ) {
             AuthScreen()
         }

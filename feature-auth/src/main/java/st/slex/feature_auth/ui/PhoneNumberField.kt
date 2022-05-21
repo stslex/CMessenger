@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import st.slex.Loading
 
 @Composable
 fun BoxScope.PhoneNumberField(
@@ -24,10 +25,9 @@ fun BoxScope.PhoneNumberField(
     phoneSize: MutableState<Int>
 ) {
     val enabled = remember { mutableStateOf(true) }
-    OutlinedTextField(
-        modifier = modifier
-            .align(Alignment.Center)
-            .padding(16.dp),
+    OutlinedTextField(modifier = modifier
+        .align(Alignment.Center)
+        .padding(16.dp),
         value = phoneNumber.value,
         singleLine = true,
         enabled = enabled.value,
@@ -39,15 +39,11 @@ fun BoxScope.PhoneNumberField(
             Icon(imageVector = Icons.Filled.Phone, contentDescription = "Phone icon")
         },
         trailingIcon = {
-            IconButton(
-                modifier = Modifier.padding(4.dp),
-                onClick = {
-                    phoneNumber.value = ""
-                }
-            ) {
+            IconButton(modifier = Modifier.padding(4.dp), onClick = {
+                phoneNumber.value = ""
+            }) {
                 Icon(
-                    imageVector = Icons.Filled.Clear,
-                    contentDescription = "clear all"
+                    imageVector = Icons.Filled.Clear, contentDescription = "clear all"
                 )
             }
         },
