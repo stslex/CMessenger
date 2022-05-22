@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
     id("cmessenger.android.library")
     id("cmessenger.android.library.compose")
@@ -13,6 +15,10 @@ android {
         minSdk = 23
         targetSdk = 32
 
+        Properties().apply {
+            load(project.rootProject.file("local.properties").inputStream())
+            buildConfigField("String", "API_KEY", getProperty("API_SUCCESS_KEY"))
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
