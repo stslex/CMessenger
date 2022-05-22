@@ -8,6 +8,13 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
+val Properties.apiKey: String
+    get() {
+        val localProperties = project.rootProject.file("local.properties")
+        load(localProperties.inputStream())
+        return getProperty("API_SUCCESS_KEY")
+    }
+
 android {
     compileSdk = 32
 
@@ -15,10 +22,8 @@ android {
         minSdk = 23
         targetSdk = 32
 
-        Properties().apply {
-            load(project.rootProject.file("local.properties").inputStream())
-            buildConfigField("String", "API_KEY", getProperty("API_SUCCESS_KEY"))
-        }
+        buildConfigField("String", "API_KEY", Properties().apiKey)
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
