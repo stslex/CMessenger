@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
     id("cmessenger.android.library")
     id("cmessenger.android.library.compose")
@@ -12,6 +14,8 @@ android {
     defaultConfig {
         minSdk = 23
         targetSdk = 32
+
+        buildConfigField("String", "API_KEY", getApiKey())
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -54,8 +58,25 @@ dependencies {
     kapt(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
 
+    implementation(libs.androidx.paging.core)
+    implementation(libs.androidx.paging.compose)
+
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.coil.kt.compose)
+
     api(libs.junit4)
     api(libs.androidx.test.core)
     api(libs.kotlinx.coroutines.test)
     api(libs.androidx.test.ext)
+}
+
+fun getApiKey(): String {
+    val properties = Properties()
+    val localProperties = project.rootProject.file("local.properties")
+    properties.load(localProperties.inputStream())
+    return properties.getProperty("API_SUCCESS_KEY")
 }

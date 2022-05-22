@@ -38,6 +38,10 @@ dependencies {
     implementation(project(":feature-greeting"))
     implementation(project(":feature-demo"))
 
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp.logging)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
@@ -53,13 +57,4 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
-
-    // androidx.test is forcing JUnit, 4.12. This forces it to use 4.13
-    configurations.configureEach {
-        resolutionStrategy {
-            force(libs.junit4)
-            // Temporary workaround for https://issuetracker.google.com/174733673
-            force("org.objenesis:objenesis:2.6")
-        }
-    }
 }
