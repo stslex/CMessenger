@@ -41,7 +41,7 @@ jobs:
 
       - name: Set up API_KEYS
         run: |
-          echo API_SUCCESS_KEY=${{ secrets.API_SUCCESS_KEY }} > ./local.properties
+          echo API_SUCCESS_KEY="${{ secrets.API_SUCCESS_KEY }}" > ./local.properties
           ls
           cat ./local.properties
 
