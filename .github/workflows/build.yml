@@ -45,6 +45,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle
 
+      - name: Test Build
+        run: ./gradlew build
+
       - name: Check lint
         run: ./gradlew lintDebug --stacktrace
 
