@@ -38,6 +38,10 @@ dependencies {
     implementation(project(":feature-greeting"))
     implementation(project(":feature-demo"))
 
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp.logging)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)

@@ -45,9 +45,6 @@ jobs:
           ls
           cat ./local.properties
 
-      - name: Test Build
-        run: ./gradlew clean build
-
       - name: Check lint
         run: ./gradlew lintDebug --stacktrace
 
