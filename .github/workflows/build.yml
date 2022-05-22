@@ -39,14 +39,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle
 
-      - name: Set up API_KEYS
+      - name: Set up API keys
         run: |
           echo API_SUCCESS_KEY="${{ secrets.API_SUCCESS_KEY }}" > ./local.properties
           ls
           cat ./local.properties
 
       - name: Test Build
-        run: ./gradlew build
+        run: ./gradlew clean build
 
       - name: Check lint
         run: ./gradlew lintDebug --stacktrace
