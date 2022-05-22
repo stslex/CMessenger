@@ -2,26 +2,20 @@ package st.slex.feature_photos.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import st.slex.feature_photos.data.repository.PhotosRepository
 import st.slex.feature_photos.ui.model.PhotoUIModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PhotosViewModel @Inject constructor(
-    private val pagingSource: PagingSource<Int, PhotoUIModel>
-) : ViewModel() {
+class PhotosViewModel @Inject constructor(photosRepository: PhotosRepository) : ViewModel() {
 
-    private val newPager: Pager<Int, PhotoUIModel> by lazy {
-        Pager(PagingConfig(pageSize = 10, enablePlaceholders = false)) {
-            pagingSource
-        }
-    }
-
-    val photos: StateFlow<PagingData<PhotoUIModel>> = newPager.flow
+    val photos: StateFlow<PagingData<PhotoUIModel>> = photosRepository.invoke()
         .cachedIn(viewModelScope)
         .stateIn(viewModelScope, SharingStarted.Lazily, PagingData.empty())
 }

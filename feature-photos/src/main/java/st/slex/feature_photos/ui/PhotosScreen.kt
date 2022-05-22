@@ -27,7 +27,7 @@ fun PhotosScreen(
 ) {
     val photosLazyPagingItems = viewModel.photos.collectAsLazyPagingItems()
 
-    AppBackground() {
+    AppBackground {
         Scaffold(modifier = modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(photosLazyPagingItems) { image ->

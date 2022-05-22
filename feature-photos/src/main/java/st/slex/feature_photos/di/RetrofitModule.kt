@@ -32,7 +32,7 @@ class RetrofitModule {
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(mLoggingInterceptor)
         .addInterceptor(interceptor)
-        .cache(Cache(application.cacheDir, 100 * 8 * 100))
+        .cache(Cache(application.cacheDir, CACHE_SIZE))
         .build()
 
     @Provides
@@ -55,5 +55,6 @@ class RetrofitModule {
         private const val HEADER_NAME = "Cache-Control"
         private const val HEADER_ONLINE_VALUE = "public, max-age=$MAX_AGE"
         private const val HEADER_PRAGMA = "Pragma"
+        private const val CACHE_SIZE: Long = 10 * 1024 * 1024 * 8L
     }
 }
