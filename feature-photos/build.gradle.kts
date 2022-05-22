@@ -58,6 +58,9 @@ dependencies {
     kapt(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
 
+    implementation(libs.androidx.paging.core)
+    implementation(libs.androidx.paging.compose)
+
     api(libs.junit4)
     api(libs.androidx.test.core)
     api(libs.kotlinx.coroutines.test)
