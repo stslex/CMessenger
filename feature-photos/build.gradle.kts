@@ -61,6 +61,13 @@ dependencies {
     implementation(libs.androidx.paging.core)
     implementation(libs.androidx.paging.compose)
 
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.coil.kt.compose)
+
     api(libs.junit4)
     api(libs.androidx.test.core)
     api(libs.kotlinx.coroutines.test)
