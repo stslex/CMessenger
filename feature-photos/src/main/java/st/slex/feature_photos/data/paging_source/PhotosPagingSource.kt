@@ -2,15 +2,18 @@ package st.slex.feature_photos.data.paging_source
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import retrofit2.HttpException
-import st.slex.feature_photos.data.service.PhotosService
 import st.slex.core_model.mapper.MapperPhotoDataUI
 import st.slex.core_model.ui.PhotoUIModel
-import javax.inject.Inject
+import st.slex.feature_photos.data.service.PhotosService
 
-class PhotosPagingSource @Inject constructor(
+class PhotosPagingSource @AssistedInject constructor(
     private val service: PhotosService,
-    private val mapper: MapperPhotoDataUI
+    private val mapper: MapperPhotoDataUI,
+    @Assisted("query") private val query: String
 ) : PagingSource<Int, PhotoUIModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, PhotoUIModel>): Int? {
@@ -24,7 +27,7 @@ class PhotosPagingSource @Inject constructor(
             val pageNumber = params.key ?: INITIAL_PAGE_NUMBER
             val pageSize = params.loadSize
 
-            val response = service.getPhotos(page = pageNumber, page_size = pageSize)
+            val response = service.getPhotos(page = pageNumber, page_size = pageSize, query = query)
 
             return if (response.isSuccessful) {
                 val photos = response.body()!!.map(mapper::map)
@@ -43,5 +46,10 @@ class PhotosPagingSource @Inject constructor(
 
     companion object {
         private const val INITIAL_PAGE_NUMBER = 1
+    }
+
+    @AssistedFactory
+    interface Factory {
+        fun create(@Assisted("query") query: String): PhotosPagingSource
     }
 }
