@@ -4,8 +4,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import retrofit2.HttpException
 import st.slex.feature_photos.data.service.PhotosService
-import st.slex.feature_photos.ui.mapper.MapperPhotoDataUI
-import st.slex.feature_photos.ui.model.PhotoUIModel
+import st.slex.core_model.mapper.MapperPhotoDataUI
+import st.slex.core_model.ui.PhotoUIModel
 import javax.inject.Inject
 
 class PhotosPagingSource @Inject constructor(

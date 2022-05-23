@@ -18,9 +18,9 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import st.slex.core_navigation.TopLevelDestination
-import st.slex.core_ui.theme.AppBackground
+import st.slex.core_ui.components.AppBackground
 import st.slex.core_ui.theme.CMessengerTheme
-import st.slex.core_ui.theme.ClearRippleTheme
+import st.slex.core_ui.components.ClearRippleTheme
 import st.slex.feature_demo.navigation.AppTopLevelNavigation
 import st.slex.feature_demo.navigation.DemoNavHost
 import st.slex.feature_demo.navigation.TOP_LEVEL_DESTINATIONS

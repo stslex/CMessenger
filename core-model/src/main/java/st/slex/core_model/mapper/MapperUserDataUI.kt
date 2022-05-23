@@ -1,8 +1,8 @@
-package st.slex.feature_photos.ui.mapper
+package st.slex.core_model.mapper
 
-import st.slex.feature_photos.core.Mapper
-import st.slex.feature_photos.data.model.UserDataModel
-import st.slex.feature_photos.ui.model.UserUIModel
+import st.slex.core_model.Mapper
+import st.slex.core_model.data.UserDataModel
+import st.slex.core_model.ui.UserUIModel
 import javax.inject.Inject
 
 interface MapperUserDataUI : Mapper<UserDataModel?, UserUIModel> {

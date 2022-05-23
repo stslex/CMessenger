@@ -7,8 +7,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import st.slex.feature_photos.data.paging_source.PhotosPagingSource
 import st.slex.feature_photos.data.service.PhotosService
-import st.slex.feature_photos.ui.mapper.MapperPhotoDataUI
-import st.slex.feature_photos.ui.model.PhotoUIModel
+import st.slex.core_model.mapper.MapperPhotoDataUI
+import st.slex.core_model.ui.PhotoUIModel
 
 @Module
 @InstallIn(SingletonComponent::class)

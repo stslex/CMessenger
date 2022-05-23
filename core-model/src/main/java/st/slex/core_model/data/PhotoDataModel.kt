@@ -1,4 +1,4 @@
-package st.slex.feature_photos.data.model
+package st.slex.core_model.data
 
 import kotlinx.serialization.SerialName
 
