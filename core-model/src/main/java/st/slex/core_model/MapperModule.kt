@@ -4,10 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import st.slex.core_model.mapper.MapperPhotoDataUI
-import st.slex.core_model.mapper.MapperPhotoUrlsDataUI
-import st.slex.core_model.mapper.MapperProfileUrlDataUI
-import st.slex.core_model.mapper.MapperUserDataUI
+import st.slex.core_model.mapper.*
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,4 +21,7 @@ interface MapperModule {
 
     @Binds
     fun providesMapperUserDataUI(mapper: MapperUserDataUI.Base): MapperUserDataUI
+
+    @Binds
+    fun bindsMapperSearchPhotoDataUI(mapper: MapperSearchPhotoDataUI.Base): MapperSearchPhotoDataUI
 }
