@@ -1,13 +1,13 @@
-package st.slex.feature_photos.di
+package st.slex.core_model
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import st.slex.feature_photos.ui.mapper.MapperPhotoDataUI
-import st.slex.feature_photos.ui.mapper.MapperPhotoUrlsDataUI
-import st.slex.feature_photos.ui.mapper.MapperProfileUrlDataUI
-import st.slex.feature_photos.ui.mapper.MapperUserDataUI
+import st.slex.core_model.mapper.MapperPhotoDataUI
+import st.slex.core_model.mapper.MapperPhotoUrlsDataUI
+import st.slex.core_model.mapper.MapperProfileUrlDataUI
+import st.slex.core_model.mapper.MapperUserDataUI
 
 @Module
 @InstallIn(SingletonComponent::class)

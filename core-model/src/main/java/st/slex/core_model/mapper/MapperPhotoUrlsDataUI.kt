@@ -1,8 +1,8 @@
-package st.slex.feature_photos.ui.mapper
+package st.slex.core_model.mapper
 
-import st.slex.feature_photos.core.Mapper
-import st.slex.feature_photos.data.model.PhotoUrlDataModel
-import st.slex.feature_photos.ui.model.PhotoUrlUIModel
+import st.slex.core_model.Mapper
+import st.slex.core_model.data.PhotoUrlDataModel
+import st.slex.core_model.ui.PhotoUrlUIModel
 import javax.inject.Inject
 
 interface MapperPhotoUrlsDataUI : Mapper<PhotoUrlDataModel, PhotoUrlUIModel> {

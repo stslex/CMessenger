@@ -8,6 +8,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import st.slex.core_ui.components.BackgroundTheme
+import st.slex.core_ui.components.LocalBackgroundTheme
 
 private val LightDefaultColorScheme = lightColorScheme(
     primary = Purple40,

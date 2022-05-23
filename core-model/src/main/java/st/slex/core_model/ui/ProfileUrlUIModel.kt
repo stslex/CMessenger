@@ -1,4 +1,4 @@
-package st.slex.feature_photos.ui.model
+package st.slex.core_model.ui
 
 data class ProfileUrlUIModel(
     val small: String,

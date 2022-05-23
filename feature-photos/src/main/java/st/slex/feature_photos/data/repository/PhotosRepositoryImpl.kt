@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.PagingSource
 import kotlinx.coroutines.flow.Flow
-import st.slex.feature_photos.ui.model.PhotoUIModel
+import st.slex.core_model.ui.PhotoUIModel
 import javax.inject.Inject
 
 class PhotosRepositoryImpl @Inject constructor(

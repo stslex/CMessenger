@@ -14,6 +14,8 @@ dependencies {
     debugImplementation(libs.androidx.lifecycle.viewModelCompose)
     debugImplementation(libs.androidx.savedstate.ktx)
 
+    implementation(libs.landscapist.glide)
+
     api(libs.androidx.compose.foundation)
     api(libs.androidx.compose.foundation.layout)
     api(libs.androidx.compose.material.iconsExtended)

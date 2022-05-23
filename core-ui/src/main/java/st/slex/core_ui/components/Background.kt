@@ -1,4 +1,4 @@
-package st.slex.core_ui.theme
+package st.slex.core_ui.components
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf

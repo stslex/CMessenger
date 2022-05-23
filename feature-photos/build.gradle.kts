@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":core-navigation"))
     implementation(project(":core-ui"))
     implementation(project(":utils-ui"))
+    implementation(project(":core-model"))
 
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.activity.compose)

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import st.slex.feature_photos.data.repository.PhotosRepository
-import st.slex.feature_photos.ui.model.PhotoUIModel
+import st.slex.core_model.ui.PhotoUIModel
 import javax.inject.Inject
 
 @HiltViewModel

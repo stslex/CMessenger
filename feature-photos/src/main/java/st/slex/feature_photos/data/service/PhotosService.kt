@@ -8,7 +8,7 @@ import st.slex.feature_photos.data.core.Constants.GET_PHOTOS
 import st.slex.feature_photos.data.core.Constants.QUERY_API_KEY
 import st.slex.feature_photos.data.core.Constants.QUERY_PAGE
 import st.slex.feature_photos.data.core.Constants.QUERY_PAGE_SIZE
-import st.slex.feature_photos.data.model.PhotoDataModel
+import st.slex.core_model.data.PhotoDataModel
 
 interface PhotosService {
 
