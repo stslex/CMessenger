@@ -6,10 +6,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextField
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -25,13 +22,11 @@ fun PhotosScreen(
     modifier: Modifier = Modifier,
     viewModel: PhotosViewModel = hiltViewModel()
 ) {
-    val query: MutableState<String> = remember { mutableStateOf("") }
     val photosLazyPagingItems = viewModel.photos.collectAsLazyPagingItems()
-    //viewModel.setUpQuery(query.value)
     AppBackground {
         Scaffold(
-            modifier = modifier.windowInsetsPadding(WindowInsets.safeDrawing)
-            //topBar = { TopSearchBar(query) }
+            modifier = modifier.windowInsetsPadding(WindowInsets.safeDrawing),
+            topBar = { TopSearchBar(viewModel::setQueryPhotosSearch) }
         ) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(photosLazyPagingItems) { image ->
@@ -43,14 +38,16 @@ fun PhotosScreen(
 }
 
 @Composable
-fun TopSearchBar(query: MutableState<String>) {
+fun TopSearchBar(search: (String) -> Unit) {
+    var textInput by remember { mutableStateOf("") }
     TextField(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
             .padding(bottom = 20.dp),
-        value = query.value,
+        value = textInput,
         onValueChange = {
-            query.value = it
+            textInput = it
+            search(it)
         })
 }

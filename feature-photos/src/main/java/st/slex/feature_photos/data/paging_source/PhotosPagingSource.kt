@@ -6,6 +6,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import retrofit2.HttpException
+import st.slex.core_model.data.PhotoDataModel
 import st.slex.core_model.mapper.MapperPhotoDataUI
 import st.slex.core_model.ui.PhotoUIModel
 import st.slex.feature_photos.data.service.PhotosService
@@ -27,16 +28,27 @@ class PhotosPagingSource @AssistedInject constructor(
             val pageNumber = params.key ?: INITIAL_PAGE_NUMBER
             val pageSize = params.loadSize
 
-            val response = service.getPhotos(page = pageNumber, page_size = pageSize, query = query)
-
-            return if (response.isSuccessful) {
-                val photos = response.body()!!.map(mapper::map)
-                val nextPageNumber = if (photos.isEmpty()) null else pageNumber + 1
-                val prevPageNumber = if (pageNumber > 1) pageNumber - 1 else null
-                LoadResult.Page(photos, prevPageNumber, nextPageNumber)
+            val photos: List<PhotoDataModel> = if (query.isEmpty()) {
+                val response = service.getPhotos(
+                    page = pageNumber,
+                    page_size = pageSize
+                )
+                if (response.isSuccessful) response.body()!!
+                else return LoadResult.Error(HttpException(response))
             } else {
-                LoadResult.Error(HttpException(response))
+                val response = service.getSearchPhotos(
+                    page = pageNumber,
+                    page_size = pageSize,
+                    query = query
+                )
+                if (response.isSuccessful) response.body()!!.results
+                else return LoadResult.Error(HttpException(response))
             }
+
+            val resultPhotos = photos.map(mapper::map)
+            val nextPageNumber = if (resultPhotos.isEmpty()) null else pageNumber + 1
+            val prevPageNumber = if (pageNumber > 1) pageNumber - 1 else null
+            return LoadResult.Page(resultPhotos, prevPageNumber, nextPageNumber)
         } catch (httpException: HttpException) {
             return LoadResult.Error(httpException)
         } catch (exception: Exception) {
