@@ -5,6 +5,6 @@ data class PhotoUIModel(
     val created_at: String,
     val updated_at: String,
     val likes: Int,
-    val user: UserUIModel?,
+    val user: UserUIModel,
     val urls: PhotoUrlUIModel
 )

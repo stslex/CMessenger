@@ -1,11 +1,11 @@
 package st.slex.core_model.mapper
 
-import st.slex.core_model.Mapper
+import st.slex.core_common.Mapper
 import st.slex.core_model.data.UserDataModel
 import st.slex.core_model.ui.UserUIModel
 import javax.inject.Inject
 
-interface MapperUserDataUI : Mapper<UserDataModel?, UserUIModel> {
+interface MapperUserDataUI : Mapper.Data<UserDataModel?, UserUIModel> {
 
     class Base @Inject constructor(
         private val profileMapper: MapperProfileUrlDataUI

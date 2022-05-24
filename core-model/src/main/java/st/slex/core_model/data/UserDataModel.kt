@@ -1,7 +1,9 @@
 package st.slex.core_model.data
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class UserDataModel(
     @SerialName("id") val id: String,
     @SerialName("username") val username: String = "",

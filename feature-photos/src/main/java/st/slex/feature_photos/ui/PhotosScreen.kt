@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import st.slex.core_demo_ui.ImagePreview
 import st.slex.core_ui.components.AppBackground
-import st.slex.core_ui.components.ImagePreview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

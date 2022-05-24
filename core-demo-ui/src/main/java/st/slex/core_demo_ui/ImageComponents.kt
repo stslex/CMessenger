@@ -1,4 +1,4 @@
-package st.slex.core_ui.components
+package st.slex.core_demo_ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding

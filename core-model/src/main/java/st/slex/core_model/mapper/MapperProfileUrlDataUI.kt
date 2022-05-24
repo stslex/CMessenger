@@ -1,11 +1,11 @@
 package st.slex.core_model.mapper
 
-import st.slex.core_model.Mapper
+import st.slex.core_common.Mapper
 import st.slex.core_model.data.ProfileUrlDataModel
 import st.slex.core_model.ui.ProfileUrlUIModel
 import javax.inject.Inject
 
-interface MapperProfileUrlDataUI : Mapper<ProfileUrlDataModel?, ProfileUrlUIModel> {
+interface MapperProfileUrlDataUI : Mapper.Data<ProfileUrlDataModel?, ProfileUrlUIModel> {
 
     class Base @Inject constructor() : MapperProfileUrlDataUI {
         override fun map(data: ProfileUrlDataModel?): ProfileUrlUIModel = ProfileUrlUIModel(

@@ -1,7 +1,8 @@
-package st.slex.core_model
+package st.slex.core_demo_ui
 
-import org.junit.Assert.assertEquals
 import org.junit.Test
+
+import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).

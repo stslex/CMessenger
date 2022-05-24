@@ -1,11 +1,11 @@
 package st.slex.core_model.mapper
 
-import st.slex.core_model.Mapper
+import st.slex.core_common.Mapper
 import st.slex.core_model.data.PhotoDataModel
 import st.slex.core_model.ui.PhotoUIModel
 import javax.inject.Inject
 
-interface MapperPhotoDataUI : Mapper<PhotoDataModel, PhotoUIModel> {
+interface MapperPhotoDataUI : Mapper.Data<PhotoDataModel, PhotoUIModel> {
 
     class Base @Inject constructor(
         private val userMapper: MapperUserDataUI,

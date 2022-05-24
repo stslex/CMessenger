@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
+    <bytecodeTargetLevel target="1.7">
       <module name="build-logic.convention" target="1.8" />
       <module name="build-logic.convention.main" target="1.8" />
       <module name="build-logic.convention.test" target="1.8" />
+      <module name="cmessenger.app" target="11" />
+      <module name="cmessenger.core-demo-ui" target="11" />
+      <module name="cmessenger.core-model" target="11" />
+      <module name="cmessenger.core-navigation" target="11" />
+      <module name="cmessenger.core-ui" target="11" />
+      <module name="cmessenger.feature-auth" target="11" />
+      <module name="cmessenger.feature-collections" target="11" />
+      <module name="cmessenger.feature-demo" target="11" />
+      <module name="cmessenger.feature-greeting" target="11" />
+      <module name="cmessenger.feature-photos" target="11" />
+      <module name="cmessenger.utils-ui" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
